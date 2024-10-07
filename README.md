@@ -46,6 +46,6 @@ Apreciamos imensamento o suporte e qualquer ajuda possivel :).
 
 ## 📝 Licença
 
-  Você pode encontrar a licença deste projeto em aqui
+  Você pode encontrar a licença deste projeto em <a href="LICENSE">aqui<a/>
 
 

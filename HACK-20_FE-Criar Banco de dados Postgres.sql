@@ -1,0 +1,40 @@
+-- Database: hackondb
+
+-- DROP DATABASE IF EXISTS hackondb;
+
+CREATE DATABASE hackondb
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE Clientes(
+	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome TEXT NOT NULL,
+	email TEXT UNIQUE NOT NULL,
+	telefone TEXT,
+	data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  )
+);
+
+CREATE TABLE Produtos(
+	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome TEXT NOT NULL,
+	descricao TEXT,
+	preco DECIMAL NOT NULL,
+	estoque INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE Pedidos(
+	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	total DECIMAL NOT NULL,
+	status TEXT NOT NULL,
+	CONSTRAINT valida_status CHECK (status IN('pendente', 'finalizado', 'cancelado')),
+	FOREIGN KEY (id_cliente) REFERENCES Clientes(id) ON DELETE CASCADE
+);

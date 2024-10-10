@@ -1,0 +1,28 @@
+services:
+  postgres-develop:
+    image: postgres:latest
+    container_name: postgres-dev
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: devdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+
+  postgres-prod:
+    image: postgres:latest
+    container_name: postgres-prod
+    environment:
+      POSTGRES_USER: produser
+      POSTGRES_PASSWORD: prodpassword
+      POSTGRES_DB: proddb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-prod-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-dev-data:
+  postgres-prod-data:

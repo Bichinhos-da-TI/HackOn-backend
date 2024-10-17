@@ -65,13 +65,30 @@
 
 ## Executar
 
-1. **Inicie os serviços com Docker Compose:**
+1. **Configure as variáveis de ambiente:**
+
+     - Renomeie o arquivo `.env.example` para `.env`:
+
+        ```sh
+        mv .env.example .env
+        ```
+
+        - Abra o arquivo `.env` e insira as credenciais necessárias para a execução do Docker:
+
+            ```env
+            DB_HOST=localhost
+            DB_USER=seu_usuario
+            DB_PASSWORD=sua_senha
+            DB_NAME=seu_banco_de_dados
+            ```
+
+2. **Inicie os serviços com Docker Compose:**
 
     ```sh
     docker-compose up -d
     ```
 
-2. **Acesse o banco de dados e execute o script SQL:**
+3. **Acesse o banco de dados e execute o script SQL:**
 
     ```sh
     docker exec -i <NOME_DO_CONTAINER_DB> psql -U <USUARIO> -d <DATABASE> -f /caminho/para/seu/script.sql

@@ -33,9 +33,13 @@ _Para instalar este projeto você deve:_
    ```sh
    cd ./server/backend/Hackon
    ```
-3. Iniciar o projeto Spring
+3. Criar a imagem docker
    ```sh
-   mvn spring-boot:run 
+   docker build -t hackOnBackend
+   ```
+4. Inciar a imagem docker em um container
+   ```sh
+   docker run -p 8080:8080 hackOnBackend
    ```
    
 ## 🤝 Contribuições

@@ -35,11 +35,11 @@ _Para instalar este projeto você deve:_
    ```
 3. Criar a imagem docker
    ```sh
-   docker build -t hackOnBackend
+   docker build -t hack_on_backend .
    ```
 4. Inciar a imagem docker em um container
    ```sh
-   docker run -p 8080:8080 hackOnBackend
+   docker run -p 8080:8080 hack_on_backend
    ```
    
 ## 🤝 Contribuições
